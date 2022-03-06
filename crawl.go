@@ -36,7 +36,7 @@ func printTree(tbl []segment, parent string, depth int) {
 			for i := 0; i < depth; i++ {
 				fmt.Print("--")
 			}
-			fmt.Print(r.Name, "\n\n")
+			fmt.Print(r.Name, " (ID: "+r.ID, " Parent ID: "+r.ParentID+")", "\n")
 			printTree(tbl, r.ID, depth+1)
 		}
 	}
