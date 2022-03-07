@@ -1,12 +1,15 @@
-ID,Parent_ID,Name
-1000,null,Auto
-1001,1000,Make
-1002,1001,Toyota
-1003,1001,Ford
-1004,1000,Intenders
-1005,1004,In-Market Buyer
-1006,1004,In-Market Seller
-1007,null,CPG
-1008,1007,Pampers
-1009,1007,Huggies
-1010,1001,Honda
+ID,Parent_ID,Name,Provider_ID
+1000,null,Auto,100
+1001,1000,Make,100
+1002,1001,Toyota,100
+1003,1001,Ford,100
+1004,1000,Intenders,100
+1005,1004,In-Market Buyer,100
+1006,1004,In-Market Seller,100
+1007,null,CPG,100
+1008,1007,Pampers,100
+1009,1007,Huggies,100
+1010,1001,Honda,100
+3000,null,Pharma,101
+3001,3000,Patients,101
+3002,3001,Diabetes,101

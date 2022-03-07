@@ -10,6 +10,7 @@ type segment struct {
 	ID       string `csv:"ID"`
 	ParentID string `csv:"Parent_ID"`
 	Name     string `csv:"Name"`
+	Provider string `csv:"Provider_ID"`
 }
 
 func main() {
@@ -25,6 +26,11 @@ func main() {
 		panic(err)
 
 	}
+
+	//for _, r := range segments {
+	//
+	//	}
+	//}
 
 	printTree(segments, "null", 0)
 
