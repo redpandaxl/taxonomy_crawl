@@ -1,4 +1,4 @@
-module taxonomy_crawl
+module github.com/redpandaxl/taxonomy_crawl
 
 go 1.17
 

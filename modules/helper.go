@@ -2,7 +2,8 @@ package modules
 
 import (
 	"fmt"
-	"taxonomy_crawl/models"
+	"github.com/redpandaxl/taxonomy_crawl/models"
+	"log"
 )
 
 func FilterByProvider(as []models.Segment, ss []models.Segment) (out []models.Segment) {
@@ -29,4 +30,28 @@ func PrintTree(tbl []models.Segment, parent string, depth int) {
 			PrintTree(tbl, r.ID, depth+1)
 		}
 	}
+}
+
+func FilterProvider(segments []models.Segment) {
+	f := make(map[string][]models.Segment)
+	for _, seg := range segments {
+		segArray, ok := f[seg.Provider]
+		if ok {
+			//segArray is already valid
+		} else {
+			segArray = make([]models.Segment, 0)
+		}
+		segArray = append(segArray, seg)
+		f[seg.Provider] = segArray
+	}
+
+	TestPrintTree(f, "null", 0)
+}
+
+func TestPrintTree(tbl map[string][]models.Segment, parent string, depth int) {
+	for k, r := range tbl {
+		log.Println("k: ", k)
+		log.Println("r: ", r)
+	}
+	//PrintTree(tbl, "null", 0)
 }
