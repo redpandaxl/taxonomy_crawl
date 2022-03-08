@@ -1,2 +1,4 @@
+github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
+github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/gocarina/gocsv v0.0.0-20220304222734-caabc5f00d30 h1:KU1VjUEEbDjzUAnLUOmi4T8bNpoJY/SYBU9JnWOHuBU=
 github.com/gocarina/gocsv v0.0.0-20220304222734-caabc5f00d30/go.mod h1:5YoVOkjYAQumqlV356Hj3xeYh4BdZuLE0/nRkf2NKkI=

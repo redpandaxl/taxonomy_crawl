@@ -55,3 +55,13 @@ func TestPrintTree(tbl map[string][]models.Segment, parent string, depth int) {
 	}
 	//PrintTree(tbl, "null", 0)
 }
+
+func getTXsAsSlice(txMap map[string]models.Segment) []models.Segment {
+	// Defines the Slice capacity to match the Map elements count
+	txs := make([]models.Segment, 0, len(txMap))
+	for _, r := range txMap {
+		txs = append(txs, r)
+	}
+
+	return txs
+}
