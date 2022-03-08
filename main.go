@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/davecgh/go-spew/spew"
 	"github.com/gocarina/gocsv"
 	"github.com/redpandaxl/taxonomy_crawl/models"
 	"github.com/redpandaxl/taxonomy_crawl/modules"
@@ -28,10 +27,6 @@ func main() {
 
 	}
 
-	txSlice := modules.getTXAsSlice(segments)
-	spew.Dump(txSlice)
-	//modules.FilterProvider(segments)
-	//modules.PrintTree(segments, "null", 0)
-	//fmt.Println(modules.FilterByProvider(segments, []models.Segment{}))
+	modules.FilterProvider(segments)
 
 }

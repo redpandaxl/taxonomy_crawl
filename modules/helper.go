@@ -3,22 +3,7 @@ package modules
 import (
 	"fmt"
 	"github.com/redpandaxl/taxonomy_crawl/models"
-	"log"
 )
-
-func FilterByProvider(as []models.Segment, ss []models.Segment) (out []models.Segment) {
-	f := make(map[string]struct{}, len(ss))
-	for _, u := range as {
-		f[u.Provider] = struct{}{}
-	}
-	for _, u := range ss {
-		if _, ok := f[u.Provider]; ok {
-			out = append(out, u)
-			PrintTree(out, "null", 0)
-		}
-	}
-	return
-}
 
 func PrintTree(tbl []models.Segment, parent string, depth int) {
 	for _, r := range tbl {
@@ -32,7 +17,7 @@ func PrintTree(tbl []models.Segment, parent string, depth int) {
 	}
 }
 
-func FilterProvider(segments []models.Segment) {
+func FilterProvider(segments []models.Segment) map[string][]models.Segment {
 	f := make(map[string][]models.Segment)
 	for _, seg := range segments {
 		segArray, ok := f[seg.Provider]
@@ -44,24 +29,10 @@ func FilterProvider(segments []models.Segment) {
 		segArray = append(segArray, seg)
 		f[seg.Provider] = segArray
 	}
+	for k, r := range f {
+		fmt.Println("-----Provider ID: ", k, "-----")
+		PrintTree(r, "null", 0)
 
-	TestPrintTree(f, "null", 0)
-}
-
-func TestPrintTree(tbl map[string][]models.Segment, parent string, depth int) {
-	for k, r := range tbl {
-		log.Println("k: ", k)
-		log.Println("r: ", r)
 	}
-	//PrintTree(tbl, "null", 0)
-}
-
-func getTXsAsSlice(txMap map[string]models.Segment) []models.Segment {
-	// Defines the Slice capacity to match the Map elements count
-	txs := make([]models.Segment, 0, len(txMap))
-	for _, r := range txMap {
-		txs = append(txs, r)
-	}
-
-	return txs
+	return f
 }
